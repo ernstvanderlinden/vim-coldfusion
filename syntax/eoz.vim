@@ -35,9 +35,9 @@
 " / COPYRIGHT AND LICENSE }}}
 "
 " Quit if a syntax file is already loaded.
-"if exists("b:current_syntax")
-"  finish
-"endif
+if exists("b:current_syntax")
+  finish
+endif
 
 sy sync fromstart
 sy sync maxlines=1000
