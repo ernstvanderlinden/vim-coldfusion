@@ -371,7 +371,7 @@ Flow statements have been grouped and can be highlighted by type.
     `throw`
     `try`
 
-![flow statement](readme-assets/img/flowstatement.png)
+![flow statement](readme-assets/img/flowStatement.png)
 
 ### Attribute Name and Value Pair
 The name, value and equal sign of an attribute assignment can be colored separately.
