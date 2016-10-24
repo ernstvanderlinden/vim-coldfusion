@@ -80,7 +80,7 @@ To get the project started, I looked at the following resources:
 Vim's man pages are my best friends as is [Dash](https://kapeli.com/dash).
 
 ### Function
-One of my first decision was **not** to implement a huge `OR` regex for all available
+One of my first decisions was **not** to implement a huge `OR` regex for all available
 ColdFusion core functions and their attributes. Some quick tests proved this
 would have huge impact on syntax highlighting performance. 
 
@@ -91,7 +91,7 @@ custom functions are treated the same and follow the exact same coloring rules.
 ![function](readme-assets/img/function.png)
 
 #### Irregular Core Function
-To my opnion, the ColdFusion language has some inconsistent function syntax
+In my opinion, the ColdFusion language has some inconsistent function syntax
 implementations, for example:
 ```coldfusion
 transaction action="rollback";
@@ -153,7 +153,7 @@ automatic syntax folding, please enable it with one of the following commands:
 ```viml
 :setlocal foldmethod=syntax
 ```
-- **Globally** add to .vimrc
+- **Globally** add to ~/.vimrc
 ```viml
 set foldmethod=syntax
 ```
@@ -176,17 +176,17 @@ The tag names of the start and end tag use the same color group.
 See *attribute name and value pair*
 
 ### Core Keyword
-ColdFusion has some special words which are colored by the CoreKeyword group.
+ColdFusion has some special words which are colored by the eozCoreKeyword group.
 
 `new`
 `required`
 
 ![core keyword](readme-assets/img/coreKeyword.png)
 
->You can add your own custom keywords to the CustomKeyword group.
+>You can add your own custom keywords to the eozCustomKeyword group.
 
 ### Core Scope
-All core scopes of ColdFusion are highlighted by CoreScope.
+All core scopes of ColdFusion are highlighted by eozCoreScope.
 
 `application`
 `arguments`
@@ -212,7 +212,7 @@ All core scopes of ColdFusion are highlighted by CoreScope.
 
 ![core scope](readme-assets/img/coreScope.png)
 
->You can add your own custom scopes to the CustomScope group.
+>You can add your own custom scopes to the eozCustomScope group.
 
 ### Hash Surround
 Variables, functions and expressions surrounded by hashes.
@@ -234,7 +234,7 @@ These punctuation elements can be colored independently.
 **Nested Parentheses**
 
 Three levels of parentheses are highlighted in different colors.
-If you prefer to go "extreme" with nested colored braces or parenthesis,
+If you prefer to go "extreme" with nested colored braces or parentheses,
 you might consider to install the [rainbow]( https://github.com/luochen1990/rainbow) plugin.
 
 ![nested parentheses](readme-assets/img/parentheses.png)
@@ -556,6 +556,8 @@ hi link eozOddFunctionKeyword Function
 " CUSTOM
 hi link eozCustomKeyword Keyword
 hi link eozCustomScope Structure
+" SGML TAG
+hi link eozSGMLTagName Ignore
 ```
 ### Source Code Structure
 The structure and folded content of **syntax/eoz.vim**.
@@ -616,7 +618,7 @@ It has been an intensive journey to develop the first public release of this
 Vim ColdFusion Syntax Highlighter.  Sharpening my regex skills and forcing
 myself to implement everything I could possibly think of.
 
-Though, [Nobody's Perfect](https://www.youtube.com/watch?v=FbniqEvs38A) and so
+Though [Nobody's Perfect](https://www.youtube.com/watch?v=FbniqEvs38A) and so
 am I. Therefore, if you have suggestions, remarks to improve the syntax
 highlighter, please let me know through
 [ernst.vanderlinden@ernestoz.com](mailto:ernst.vanderlinden@ernestoz.com)
