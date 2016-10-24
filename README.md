@@ -12,6 +12,7 @@ ColdFusion is either a registered trademark or trademark of [Adobe Systems Incor
 
 #### Syntax Highlighter
 The MIT License (MIT)
+
 Copyright (c) 2016 Ernst M. van der Linden - ernst.vanderlinden@ernestoz.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
