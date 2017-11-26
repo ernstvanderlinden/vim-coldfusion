@@ -1,4 +1,4 @@
-VIM - ColdFusion Syntax Highlighter
+VIM - CFML Syntax Highlighter
 ====================================
 Developed by Ernst M. van der Linden - [ernst.vanderlinden@ernestoz.com](mailto:ernst.vanderlinden@ernestoz.com)
 
@@ -10,7 +10,7 @@ ColdFusion is either a registered trademark or trademark of [Adobe Systems Incor
 #### Vim
 [Vim](http://www.vim.org) is charityware. Its license is GPL-compatible, so it's distributed freely, but we ask that if you find it useful you make a donation to help children in Uganda through the [ICCF](http://iccf-holland.org). The full license text can be found in the [documentation](http://vimdoc.sourceforge.net/htmldoc/uganda.html#license).
 
-#### Syntax Highlighter
+#### CFML Syntax Highlighter
 The MIT License (MIT)
 
 Copyright (c) 2016 Ernst M. van der Linden - ernst.vanderlinden@ernestoz.com
@@ -88,7 +88,7 @@ Vim's man pages are my best friends as is [Dash](https://kapeli.com/dash).
 ### Function
 One of my first decisions was **not** to implement a huge `OR` regex for all available
 ColdFusion core functions and their attributes. Some quick tests proved this
-would have huge impact on syntax highlighting performance. 
+would have huge impact on syntax highlighting performance.
 
 In addition, it would be tedious to keep these regex patterns up to
 date as new functions will be added on each ColdFusion release. Therefore core and
@@ -182,17 +182,17 @@ The tag names of the start and end tag use the same color group.
 See *attribute name and value pair*
 
 ### Core Keyword
-ColdFusion has some special words which are colored by the eozCoreKeyword group.
+ColdFusion has some special words which are colored by the cfmlCoreKeyword group.
 
 `new`
 `required`
 
 ![core keyword](readme-assets/img/coreKeyword.png)
 
->You can add your own custom keywords to the eozCustomKeyword group.
+>You can add your own custom keywords to the cfmlCustomKeyword group.
 
 ### Core Scope
-All core scopes of ColdFusion are highlighted by eozCoreScope.
+All core scopes of ColdFusion are highlighted by cfmlCoreScope.
 
 `application`
 `arguments`
@@ -218,7 +218,7 @@ All core scopes of ColdFusion are highlighted by eozCoreScope.
 
 ![core scope](readme-assets/img/coreScope.png)
 
->You can add your own custom scopes to the eozCustomScope group.
+>You can add your own custom scopes to the cfmlCustomScope group.
 
 ### Hash Surround
 Variables, functions and expressions surrounded by hashes.
@@ -331,15 +331,15 @@ Operators have been grouped and can be colored by type.
 
 ### Comment
 
-- **Block Comment** 
+- **Block Comment**
 
     `/* block comment */`
 
-- **Line Comment** 
+- **Line Comment**
 
     `// line comment`
 
-- **Tag Comment** 
+- **Tag Comment**
 
     `<!--- tag comment --->`
 
@@ -470,7 +470,7 @@ surrounded vars and ColdFusion functions.
 Vim's default sql syntax is sqloracle.vim, but you can easily override the
 default sql syntax type globally.
 
-**Add the following to ~/.vimrc** 
+**Add the following to ~/.vimrc**
 ```viml
 let g:sql_type_default = 'mysql'
 ```
@@ -489,91 +489,91 @@ Highlight Group
 An overview of all available syntax highlight groups.
 
 ```viml
-hi link eozNumber Number
-hi link eozBoolean Boolean
-hi link eozEqualSign Keyword
+hi link cfmlNumber Number
+hi link cfmlBoolean Boolean
+hi link cfmlEqualSign Keyword
 " HASH SURROUND
-hi link eozHashSurround PreProc
+hi link cfmlHashSurround PreProc
 " OPERATOR
-hi link eozArithmeticOperator Function
-hi link eozBooleanOperator Function
-hi link eozDecisionOperator Function
-hi link eozStringOperator Function
-hi link eozTernaryOperator Function
+hi link cfmlArithmeticOperator Function
+hi link cfmlBooleanOperator Function
+hi link cfmlDecisionOperator Function
+hi link cfmlStringOperator Function
+hi link cfmlTernaryOperator Function
 " PARENTHESIS
-hi link eozParenthesis1 Statement
-hi link eozParenthesis2 String
-hi link eozParenthesis3 Delimiter
+hi link cfmlParenthesis1 Statement
+hi link cfmlParenthesis2 String
+hi link cfmlParenthesis3 Delimiter
 " BRACE
-hi link eozBrace PreProc
+hi link cfmlBrace PreProc
 " PUNCTUATION - BRACKET
-hi link eozBracket Statement
+hi link cfmlBracket Statement
 " PUNCTUATION - CHAR
-hi link eozComma Comment
-hi link eozDot Comment
-hi link eozSemiColon Comment
+hi link cfmlComma Comment
+hi link cfmlDot Comment
+hi link cfmlSemiColon Comment
 " PUNCTUATION - QUOTE
-hi link eozDoubleQuote String
-hi link eozDoubleQuotedValue String
-hi link eozSingleQuote String
-hi link eozSingleQuotedValue String
+hi link cfmlDoubleQuote String
+hi link cfmlDoubleQuotedValue String
+hi link cfmlSingleQuote String
+hi link cfmlSingleQuotedValue String
 " TAG START AND END
-hi link eozTagName Function
-hi link eozTagBracket Comment
+hi link cfmlTagName Function
+hi link cfmlTagBracket Comment
 " ATTRIBUTE NAME AND VALUE
-hi link eozAttrName Type
-hi link eozAttrValue Special
+hi link cfmlAttrName Type
+hi link cfmlAttrValue Special
 " COMMENT
-hi link eozCommentBlock Comment
-hi link eozCommentLine Comment
-hi link eozTagComment Comment
+hi link cfmlCommentBlock Comment
+hi link cfmlCommentLine Comment
+hi link cfmlTagComment Comment
 " FLOW STATEMENT
-hi link eozDecisionFlowKeyword Conditional
-hi link eozLoopFlowKeyword Repeat
-hi link eozTryFlowKeyword Exception
-hi link eozBranchFlowKeyword Keyword
+hi link cfmlDecisionFlowKeyword Conditional
+hi link cfmlLoopFlowKeyword Repeat
+hi link cfmlTryFlowKeyword Exception
+hi link cfmlBranchFlowKeyword Keyword
 " STORAGE KEYWORD
-hi link eozStorageKeyword Keyword
+hi link cfmlStorageKeyword Keyword
 " STORAGE TYPE
-hi link eozStorageType Keyword
+hi link cfmlStorageType Keyword
 " CORE KEYWORD
-hi link eozCoreKeyword PreProc
+hi link cfmlCoreKeyword PreProc
 " CORE SCOPE
-hi link eozCoreScope Keyword
+hi link cfmlCoreScope Keyword
 " TAG IN SCRIPT
-hi link eozTagNameInScript Function
+hi link cfmlTagNameInScript Function
 " METADATA
-" meta data value = eozMetaData
-hi link eozMetaData String
-hi link eozMetaDataName Type
+" meta data value = cfmlMetaData
+hi link cfmlMetaData String
+hi link cfmlMetaDataName Type
 " COMPONENT DEFINITION
-hi link eozComponentKeyword Keyword
+hi link cfmlComponentKeyword Keyword
 " INTERFACE DEFINITION
-hi link eozInterfaceKeyword Keyword
+hi link cfmlInterfaceKeyword Keyword
 " PROPERTY
-hi link eozPropertyKeyword Keyword
+hi link cfmlPropertyKeyword Keyword
 " FUNCTION DEFINITION
-hi link eozFunctionKeyword Keyword
-hi link eozFunctionModifier Keyword
-hi link eozFunctionReturnType Keyword
-hi link eozFunctionName Function
+hi link cfmlFunctionKeyword Keyword
+hi link cfmlFunctionModifier Keyword
+hi link cfmlFunctionReturnType Keyword
+hi link cfmlFunctionName Function
 " ODD FUNCTION
-hi link eozOddFunctionKeyword Function
+hi link cfmlOddFunctionKeyword Function
 " CUSTOM
-hi link eozCustomKeyword Keyword
-hi link eozCustomScope Structure
+hi link cfmlCustomKeyword Keyword
+hi link cfmlCustomScope Structure
 " SGML TAG
-hi link eozSGMLTagName Ignore
+hi link cfmlSGMLTagName Ignore
 ```
 ### Source Code Structure
-The structure and folded content of **syntax/eoz.vim**.
+The structure and folded content of **syntax/cfml.vim**.
 
 ![plugin code](readme-assets/img/pluginCode.png)
 
 Install
 -------
 You can install the syntax highlighter plugin manually or by using your favorite
-package manager, in my case Pathogen. 
+package manager, in my case Pathogen.
 
 #### Tim Pope's [Pathogen](https://github.com/tpope/vim-pathogen)
 
@@ -583,29 +583,16 @@ git clone https://github.com/ernstvanderlinden/vim-coldfusion.git
 ```
 
 #### ~/.vimrc
-It is prefered in Vim to use the file extension as the file name for automatically loading syntax highlighters. Though to avoid naming conflicts with existing syntax highlighters, I prefixed all groups with 'eoz' (ernestoz).
-
-![loaed syntax highlighters](readme-assets/img/loadedSyntaxHighlighters.png)
 
 **Add the following to your ~/.vimrc**
 ``` viml
-autocmd FileType eoz
-    \ setlocal
-      \ expandtab
-      \ foldmethod=syntax
-      \ shiftwidth=4
-      \ smarttab
-      \ softtabstop=0
-      \ tabstop=4
-
-autocmd Bufread,BufNewFile *.cfm set filetype=eoz
-autocmd Bufread,BufNewFile *.cfc set filetype=eoz
+au BufNewFile,BufRead *.cfm,*.cfc		setf cfml
 ```
 
 ### Color Scheme
 
 The syntax highlight colors depend on Vim's active color scheme. There are many
-schemes available, choose one whichever you like. 
+schemes available, choose one whichever you like.
 
 #### Custom Scheme
 If you prefer custom colors, please have a look at [Vim color names](http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim).
