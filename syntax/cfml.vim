@@ -1,10 +1,10 @@
 " Vim filetype plugin file
 "
-" Language:	    CFML (ColdFusion)
-" Author:	      Ernst M. van der Linden <ernst.vanderlinden@ernestoz.com>
+" Language:     CFML (ColdFusion)
+" Author:       Ernst M. van der Linden <ernst.vanderlinden@ernestoz.com>
 " License:      The MIT License (MIT)
 "
-" Maintainer:	  Ernst M. van der Linden <ernst.vanderlinden@ernestoz.com>
+" Maintainer:   Ernst M. van der Linden <ernst.vanderlinden@ernestoz.com>
 " URL:          https://github.com/ernstvanderlinden/vim-coldfusion
 " Last Change:  2017 Nov 26
 
@@ -25,11 +25,10 @@ sy case ignore
 
 " INCLUDES {{{
 sy include @sqlSyntax $VIMRUNTIME/syntax/sql.vim
-" 20161010: Disabled including html highlighting as it contains huge keywords regex,
-" so it will have impact on performance.
-" Use own simple SGML tag coloring instead.
-"runtime! syntax/html.vim
-" INCLUDES }}}
+" 20161010: Disabled include html highlighting as it contains huge keywords
+" regex, so it will have impact on performance.  Use own simple SGML tag
+" coloring instead.
+"runtime! syntax/html.vim INCLUDES }}}
 
 " NUMBER {{{
 sy match cfmlNumber
@@ -378,9 +377,9 @@ sy region cfmlFunctionTagRegion
 
 " CFIF REGION AND FOLD {{{
 " <cfif
-" s^^^^^^^
+" s^^^^
 " </cfif>
-" ^^^^^^^^^e
+" ^^^^^^e
 sy region cfmlIfTagRegion
   \ fold
   \ keepend
@@ -436,7 +435,7 @@ sy region cfmlQueryTagRegion
 
 " SAVECONTENT REGION AND FOLD {{{
 " <savecontent
-" s^^^^^^^^^^
+" s^^^^^^^^^^^
 " </savecontent>
 " ^^^^^^^^^^^^^e
 sy region cfmlSavecontentTagRegion
