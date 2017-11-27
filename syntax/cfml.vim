@@ -6,7 +6,7 @@
 "
 " Maintainer:   Ernst M. van der Linden <ernst.vanderlinden@ernestoz.com>
 " URL:          https://github.com/ernstvanderlinden/vim-coldfusion
-" Last Change:  2017 Nov 26
+" Last Change:  2017 Nov 27
 
 " Only do this when not done yet for this buffer.
 if exists("b:did_ftplugin")
@@ -28,7 +28,8 @@ sy include @sqlSyntax $VIMRUNTIME/syntax/sql.vim
 " 20161010: Disabled include html highlighting as it contains huge keywords
 " regex, so it will have impact on performance.  Use own simple SGML tag
 " coloring instead.
-"runtime! syntax/html.vim INCLUDES }}}
+"runtime! syntax/html.vim
+" / INCLUDES }}}
 
 " NUMBER {{{
 sy match cfmlNumber
@@ -145,7 +146,7 @@ sy cluster cfmlOperator
     \cfmlDecisionOperator,
     \cfmlStringOperator,
     \cfmlTernaryOperator
-" OPERATOR }}}
+" / OPERATOR }}}
 
 " PARENTHESIS {{{
 sy cluster cfmlParenthesisRegionContains
@@ -197,7 +198,7 @@ sy cluster cfmlParenthesisRegion
     \cfmlParenthesisRegion1,
     \cfmlParenthesisRegion2,
     \cfmlParenthesisRegion3
-" PARENTHESIS }}}
+" / PARENTHESIS }}}
 
 " BRACE {{{
 sy match cfmlBrace
@@ -210,7 +211,7 @@ sy region cfmlBraceRegion
   \ transparent
   \ start="{"
   \ end="}"
-" BRACE }}}
+" / BRACE }}}
 
 " PUNCTUATION {{{
 
@@ -264,7 +265,7 @@ sy cluster cfmlPunctuation
     \cfmlDot,
     \cfmlSemiColon
 
-" PUNCTUATION }}}
+" / PUNCTUATION }}}
 
 " TAG START AND END {{{
 " tag start
@@ -321,7 +322,7 @@ sy match cfmlTagBracket
 sy match cfmlTagName
   \ contained
   \ "\v<\/*\zs\ccf\w*"
-" TAG START AND END }}}
+" / TAG START AND END }}}
 
 " ATTRIBUTE NAME AND VALUE {{{
 sy match cfmlAttrName
@@ -344,7 +345,7 @@ sy cluster cfmlAttribute
   \cfmlAttrValue,
   \cfmlCoreKeyword,
   \cfmlCoreScope
-" ATTRIBUTE NAME AND VALUE }}}
+" / ATTRIBUTE NAME AND VALUE }}}
 
 " TAG REGION AND FOLDING {{{
 
@@ -604,7 +605,7 @@ sy cluster cfmlFlowStatement
     \cfmlLoopFlowKeyword,
     \cfmlTryFlowKeyword
 
-" FLOW STATEMENT }}}
+" / FLOW STATEMENT }}}
 
 " STORAGE KEYWORD {{{
 sy keyword cfmlStorageKeyword
@@ -678,7 +679,7 @@ sy cluster cfmlSqlStatement
     \cfmlFunctionName,
     \cfmlHashSurround,
     \cfmlNumber
-" SQL STATEMENT }}}
+" / SQL STATEMENT }}}
 
 " TAG IN SCRIPT {{{
 sy match cfmlTagNameInScript
@@ -738,7 +739,7 @@ sy region cfmlProperty
 sy match cfmlPropertyKeyword
         \ contained
         \ "\v<property>"
-" PROPERTY }}}
+" / PROPERTY }}}
 
 " FUNCTION DEFINITION {{{
 sy match cfmlFunctionDefinition
@@ -927,7 +928,7 @@ sy match cfmlSGMLTagName
   \ contained
   \ "\v(\<\/*)\zs\w+"
 
-" SGML TAG START AND END }}}
+" / SGML TAG START AND END }}}
 
 " HIGHLIGHTING {{{
 
