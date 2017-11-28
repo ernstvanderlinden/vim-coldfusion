@@ -1,6 +1,6 @@
 " Vim syntax file
 "
-" Language:     CFML (ColdFusion)
+" Language:     CF (ColdFusion)
 " Author:       Ernst M. van der Linden <ernst.vanderlinden@ernestoz.com>
 " License:      The MIT License (MIT)
 "
@@ -1012,7 +1012,7 @@ hi link cfmlSGMLTagName Ignore
 
 " / HIGHLIGHTING }}}
 
-let b:current_syntax = "cfml"
+let b:current_syntax = "cf"
 
 let &cpo = s:cpo_save
 unlet s:cpo_save
