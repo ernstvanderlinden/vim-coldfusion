@@ -33,38 +33,38 @@ sy include @sqlSyntax $VIMRUNTIME/syntax/sql.vim
 " / INCLUDES }}}
 
 " NUMBER {{{
-sy match cfmlNumber
+sy match cfNumber
     \ "\v<\d+>"
 " / NUMBER }}}
 
 " EQUAL SIGN {{{
-sy match cfmlEqualSign
+sy match cfEqualSign
     \ "\v\="
 " / EQUAL SIGN }}}
 
 " BOOLEAN {{{
-sy match cfmlBoolean
+sy match cfBoolean
     \ "\v<(true|false)>"
 " / BOOLEAN }}}
 
 " HASH SURROUNDED {{{
-sy region cfmlHashSurround
+sy region cfHashSurround
   \ keepend
   \ oneline
   \ start="#"
   \ end="#"
   \ skip="##"
     \ contains=
-      \@cfmlOperator,
-      \@cfmlPunctuation,
-      \cfmlBoolean,
-      \cfmlCoreKeyword,
-      \cfmlCoreScope,
-      \cfmlCustomKeyword,
-      \cfmlCustomScope,
-      \cfmlEqualSign,
-      \cfmlFunctionName,
-      \cfmlNumber
+      \@cfOperator,
+      \@cfPunctuation,
+      \cfBoolean,
+      \cfCoreKeyword,
+      \cfCoreScope,
+      \cfCustomKeyword,
+      \cfCustomScope,
+      \cfEqualSign,
+      \cfFunctionName,
+      \cfNumber
 " / HASH SURROUNDED }}}
 
 " OPERATOR {{{
@@ -76,7 +76,7 @@ sy region cfmlHashSurround
 " + - * / %
 " += -= *= /= %=
 " ^ mod
-sy match cfmlArithmeticOperator
+sy match cfArithmeticOperator
   \ "\v
   \(\+|-)\ze\d
   \|(\+\+|--)\ze\w
@@ -92,7 +92,7 @@ sy match cfmlArithmeticOperator
 " OPERATOR - BOOLEAN {{{
 " not and or xor eqv imp
 " ! && ||
-sy match cfmlBooleanOperator
+sy match cfBooleanOperator
   \ "\v\s
   \(not|and|or|xor|eqv|imp
   \|\!|\&\&|\|\|
@@ -110,7 +110,7 @@ sy match cfmlBooleanOperator
 "greater than or equal to|gte|ge
 "less than or equal to|lte|le
 "==|!=|>|<|>=|<=
-sy match cfmlDecisionOperator
+sy match cfDecisionOperator
   \ "\v\s
   \(is|equal|eq
   \|is not|not equal|neq
@@ -128,84 +128,84 @@ sy match cfmlDecisionOperator
 " OPERATOR - STRING {{{
 " &
 " &=
-sy match cfmlStringOperator
+sy match cfStringOperator
     \ "\v\s\&\={,1}\s"
 " / OPERATOR - STRING }}}
 
 " OPERATOR - TERNARY {{{
 " ? :
-sy match cfmlTernaryOperator
+sy match cfTernaryOperator
   \ "\v\s
   \\?|\:
   \\s"
 " / OPERATOR - TERNARY }}}
 
-sy cluster cfmlOperator
+sy cluster cfOperator
   \ contains=
-    \cfmlArithmeticOperator,
-    \cfmlBooleanOperator,
-    \cfmlDecisionOperator,
-    \cfmlStringOperator,
-    \cfmlTernaryOperator
+    \cfArithmeticOperator,
+    \cfBooleanOperator,
+    \cfDecisionOperator,
+    \cfStringOperator,
+    \cfTernaryOperator
 " / OPERATOR }}}
 
 " PARENTHESIS {{{
-sy cluster cfmlParenthesisRegionContains
+sy cluster cfParenthesisRegionContains
   \ contains=
-    \@cfmlAttribute,
-    \@cfmlComment,
-    \@cfmlFlowStatement,
-    \@cfmlOperator,
-    \@cfmlPunctuation,
-    \cfmlBoolean,
-    \cfmlBrace,
-    \cfmlCoreKeyword,
-    \cfmlCoreScope,
-    \cfmlCustomKeyword,
-    \cfmlCustomScope,
-    \cfmlEqualSign,
-    \cfmlFunctionName,
-    \cfmlNumber,
-    \cfmlStorageKeyword,
-    \cfmlStorageType
+    \@cfAttribute,
+    \@cfComment,
+    \@cfFlowStatement,
+    \@cfOperator,
+    \@cfPunctuation,
+    \cfBoolean,
+    \cfBrace,
+    \cfCoreKeyword,
+    \cfCoreScope,
+    \cfCustomKeyword,
+    \cfCustomScope,
+    \cfEqualSign,
+    \cfFunctionName,
+    \cfNumber,
+    \cfStorageKeyword,
+    \cfStorageType
 
-sy region cfmlParenthesisRegion1
+sy region cfParenthesisRegion1
   \ extend
-  \ matchgroup=cfmlParenthesis1
+  \ matchgroup=cfParenthesis1
   \ transparent
   \ start=/(/
   \ end=/)/
   \ contains=
-    \cfmlParenthesisRegion2,
-    \@cfmlParenthesisRegionContains
-sy region cfmlParenthesisRegion2
-  \ matchgroup=cfmlParenthesis2
+    \cfParenthesisRegion2,
+    \@cfParenthesisRegionContains
+sy region cfParenthesisRegion2
+  \ matchgroup=cfParenthesis2
   \ transparent
   \ start=/(/
   \ end=/)/
   \ contains=
-    \cfmlParenthesisRegion3,
-    \@cfmlParenthesisRegionContains
-sy region cfmlParenthesisRegion3
-  \ matchgroup=cfmlParenthesis3
+    \cfParenthesisRegion3,
+    \@cfParenthesisRegionContains
+sy region cfParenthesisRegion3
+  \ matchgroup=cfParenthesis3
   \ transparent
   \ start=/(/
   \ end=/)/
   \ contains=
-    \cfmlParenthesisRegion1,
-    \@cfmlParenthesisRegionContains
-sy cluster cfmlParenthesisRegion
+    \cfParenthesisRegion1,
+    \@cfParenthesisRegionContains
+sy cluster cfParenthesisRegion
   \ contains=
-    \cfmlParenthesisRegion1,
-    \cfmlParenthesisRegion2,
-    \cfmlParenthesisRegion3
+    \cfParenthesisRegion1,
+    \cfParenthesisRegion2,
+    \cfParenthesisRegion3
 " / PARENTHESIS }}}
 
 " BRACE {{{
-sy match cfmlBrace
+sy match cfBrace
     \ "{\|}"
 
-sy region cfmlBraceRegion
+sy region cfBraceRegion
   \ extend
   \ fold
   \ keepend
@@ -217,54 +217,54 @@ sy region cfmlBraceRegion
 " PUNCTUATION {{{
 
 " PUNCTUATION - BRACKET {{{
-sy match cfmlBracket
+sy match cfBracket
   \ "\(\[\|\]\)"
   \ contained
 " / PUNCTUATION - BRACKET }}}
 
 " PUNCTUATION - CHAR {{{
-sy match cfmlComma ","
-sy match cfmlDot "\."
-sy match cfmlSemiColon ";"
+sy match cfComma ","
+sy match cfDot "\."
+sy match cfSemiColon ";"
 
 " / PUNCTUATION - CHAR }}}
 
 " PUNCTUATION - QUOTE {{{
-sy region cfmlSingleQuotedValue
-  \ matchgroup=cfmlSingleQuote
+sy region cfSingleQuotedValue
+  \ matchgroup=cfSingleQuote
   \ start=/'/
   \ skip=/''/
   \ end=/'/
   \ contains=
-    \cfmlHashSurround
+    \cfHashSurround
 
-sy region cfmlDoubleQuotedValue
-  \ matchgroup=cfmlDoubleQuote
+sy region cfDoubleQuotedValue
+  \ matchgroup=cfDoubleQuote
   \ start=/"/
   \ skip=/""/
   \ end=/"/
   \ contains=
-    \cfmlHashSurround
+    \cfHashSurround
 
-sy cluster cfmlQuotedValue
+sy cluster cfQuotedValue
   \ contains=
-    \cfmlDoubleQuotedValue,
-    \cfmlSingleQuotedValue
+    \cfDoubleQuotedValue,
+    \cfSingleQuotedValue
 
-sy cluster cfmlQuote
+sy cluster cfQuote
   \ contains=
-    \cfmlDoubleQuote,
-    \cfmlSingleQuote
+    \cfDoubleQuote,
+    \cfSingleQuote
 " / PUNCTUATION - QUOTE }}}
 
-sy cluster cfmlPunctuation
+sy cluster cfPunctuation
   \ contains=
-    \@cfmlQuote,
-    \@cfmlQuotedValue,
-    \cfmlBracket,
-    \cfmlComma,
-    \cfmlDot,
-    \cfmlSemiColon
+    \@cfQuote,
+    \@cfQuotedValue,
+    \cfBracket,
+    \cfComma,
+    \cfDot,
+    \cfSemiColon
 
 " / PUNCTUATION }}}
 
@@ -272,80 +272,80 @@ sy cluster cfmlPunctuation
 " tag start
 " <cf...>
 " s^^   e
-sy region cfmlTagStart
+sy region cfTagStart
   \ keepend
   \ transparent
   \ start="\c<cf_*"
   \ end=">"
 \ contains=
-  \@cfmlAttribute,
-  \@cfmlComment,
-  \@cfmlOperator,
-  \@cfmlParenthesisRegion,
-  \@cfmlPunctuation,
-  \@cfmlQuote,
-  \@cfmlQuotedValue,
-  \cfmlAttrEqualSign,
-  \cfmlBoolean,
-  \cfmlBrace,
-  \cfmlCoreKeyword,
-  \cfmlCoreScope,
-  \cfmlCustomKeyword,
-  \cfmlCustomScope,
-  \cfmlEqualSign,
-  \cfmlFunctionName,
-  \cfmlNumber,
-  \cfmlStorageKeyword,
-  \cfmlStorageType,
-  \cfmlTagBracket,
-  \cfmlTagName
+  \@cfAttribute,
+  \@cfComment,
+  \@cfOperator,
+  \@cfParenthesisRegion,
+  \@cfPunctuation,
+  \@cfQuote,
+  \@cfQuotedValue,
+  \cfAttrEqualSign,
+  \cfBoolean,
+  \cfBrace,
+  \cfCoreKeyword,
+  \cfCoreScope,
+  \cfCustomKeyword,
+  \cfCustomScope,
+  \cfEqualSign,
+  \cfFunctionName,
+  \cfNumber,
+  \cfStorageKeyword,
+  \cfStorageType,
+  \cfTagBracket,
+  \cfTagName
 
 " tag end
 " </cf...>
 " s^^^   e
-sy match cfmlTagEnd
+sy match cfTagEnd
   \ transparent
   \ "\c</cf_*[^>]*>"
   \ contains=
-    \cfmlTagBracket,
-    \cfmlTagName
+    \cfTagBracket,
+    \cfTagName
 
 " tag bracket
 " </...>
 " ^^   ^
-sy match cfmlTagBracket
+sy match cfTagBracket
   \ contained
   \ "\(<\|>\|\/\)"
 
 " tag name
 " <cf...>
 "  s^^^e
-sy match cfmlTagName
+sy match cfTagName
   \ contained
   \ "\v<\/*\zs\ccf\w*"
 " / TAG START AND END }}}
 
 " ATTRIBUTE NAME AND VALUE {{{
-sy match cfmlAttrName
+sy match cfAttrName
   \ contained
   \ "\v(var\s)@<!\w+\ze\s*\=([^\=])+"
 
-sy match cfmlAttrValue
+sy match cfAttrValue
   \ contained
   \ "\v(\=\"*)\zs\s*\w*"
 
-sy match cfmlAttrEqualSign
+sy match cfAttrEqualSign
   \ contained
   \ "\v\="
 
-sy cluster cfmlAttribute
+sy cluster cfAttribute
 \ contains=
-  \@cfmlQuotedValue,
-  \cfmlAttrEqualSign,
-  \cfmlAttrName,
-  \cfmlAttrValue,
-  \cfmlCoreKeyword,
-  \cfmlCoreScope
+  \@cfQuotedValue,
+  \cfAttrEqualSign,
+  \cfAttrName,
+  \cfAttrValue,
+  \cfCoreKeyword,
+  \cfCoreScope
 " / ATTRIBUTE NAME AND VALUE }}}
 
 " TAG REGION AND FOLDING {{{
@@ -355,7 +355,7 @@ sy cluster cfmlAttribute
 " s^^^^^^^^^^^
 " </cfcomponent>
 " ^^^^^^^^^^^^^e
-sy region cfmlComponentTagRegion
+sy region cfComponentTagRegion
   \ fold
   \ keepend
   \ transparent
@@ -369,7 +369,7 @@ sy region cfmlComponentTagRegion
 " s^^^^^^^^^^
 " </cffunction>
 " ^^^^^^^^^^^^e
-sy region cfmlFunctionTagRegion
+sy region cfFunctionTagRegion
   \ fold
   \ keepend
   \ transparent
@@ -382,7 +382,7 @@ sy region cfmlFunctionTagRegion
 " s^^^^
 " </cfif>
 " ^^^^^^e
-sy region cfmlIfTagRegion
+sy region cfIfTagRegion
   \ fold
   \ keepend
   \ transparent
@@ -395,7 +395,7 @@ sy region cfmlIfTagRegion
 " s^^^^^^
 " </cfloop>
 " ^^^^^^^^e
-sy region cfmlLoopTagRegion
+sy region cfLoopTagRegion
   \ fold
   \ keepend
   \ transparent
@@ -408,7 +408,7 @@ sy region cfmlLoopTagRegion
 " s^^^^^^^^
 " </cfoutput>
 " ^^^^^^^^^^e
-sy region cfmlOutputTagRegion
+sy region cfOutputTagRegion
   \ fold
   \ keepend
   \ transparent
@@ -421,18 +421,18 @@ sy region cfmlOutputTagRegion
 " s^^^^^^^
 " </cfquery>
 " ^^^^^^^^^e
-        "\@cfmlSqlStatement,
-sy region cfmlQueryTagRegion
+        "\@cfSqlStatement,
+sy region cfQueryTagRegion
   \ fold
   \ keepend
   \ transparent
   \ start="\c<cfquery"
   \ end="\c</cfquery>"
   \ contains=
-    \@cfmlSqlStatement,
-    \cfmlTagStart,
-    \cfmlTagEnd,
-    \cfmlTagComment
+    \@cfSqlStatement,
+    \cfTagStart,
+    \cfTagEnd,
+    \cfTagComment
 " / CFQUERY REGION AND FOLD }}}
 
 " SAVECONTENT REGION AND FOLD {{{
@@ -440,7 +440,7 @@ sy region cfmlQueryTagRegion
 " s^^^^^^^^^^^
 " </savecontent>
 " ^^^^^^^^^^^^^e
-sy region cfmlSavecontentTagRegion
+sy region cfSavecontentTagRegion
   \ fold
   \ keepend
   \ transparent
@@ -453,34 +453,34 @@ sy region cfmlSavecontentTagRegion
 " s^^^^^^^^^
 " </cfscript>
 " ^^^^^^^^^^e
-"\cfmlCustomScope,
-sy region cfmlScriptTagRegion
+"\cfCustomScope,
+sy region cfScriptTagRegion
   \ fold
   \ keepend
   \ transparent
   \ start="\c<cfscript>"
   \ end="\c</cfscript>"
   \ contains=
-    \@cfmlComment,
-    \@cfmlFlowStatement,
-    \cfmlHashSurround,
-    \@cfmlOperator,
-    \@cfmlParenthesisRegion,
-    \@cfmlPunctuation,
-    \cfmlBoolean,
-    \cfmlBrace,
-    \cfmlCoreKeyword,
-    \cfmlCoreScope,
-    \cfmlCustomKeyword,
-    \cfmlCustomScope,
-    \cfmlEqualSign,
-    \cfmlFunctionDefinition,
-    \cfmlFunctionName,
-    \cfmlNumber,
-    \cfmlOddFunction,
-    \cfmlStorageKeyword,
-    \cfmlTagEnd,
-    \cfmlTagStart
+    \@cfComment,
+    \@cfFlowStatement,
+    \cfHashSurround,
+    \@cfOperator,
+    \@cfParenthesisRegion,
+    \@cfPunctuation,
+    \cfBoolean,
+    \cfBrace,
+    \cfCoreKeyword,
+    \cfCoreScope,
+    \cfCustomKeyword,
+    \cfCustomScope,
+    \cfEqualSign,
+    \cfFunctionDefinition,
+    \cfFunctionName,
+    \cfNumber,
+    \cfOddFunction,
+    \cfStorageKeyword,
+    \cfTagEnd,
+    \cfTagStart
 " / CFSCRIPT REGION AND FOLD }}}
 
 " CFSWITCH REGION AND FOLD {{{
@@ -488,7 +488,7 @@ sy region cfmlScriptTagRegion
 " s^^^^^^^^
 " </cfswitch>
 " ^^^^^^^^^^e
-sy region cfmlSwitchTagRegion
+sy region cfSwitchTagRegion
   \ fold
   \ keepend
   \ transparent
@@ -501,7 +501,7 @@ sy region cfmlSwitchTagRegion
 " s^^^^^^^^^^^^^
 " </cftransaction>
 " ^^^^^^^^^^^^^^^e
-sy region cfmlTransactionTagRegion
+sy region cfTransactionTagRegion
   \ fold
   \ keepend
   \ transparent
@@ -514,7 +514,7 @@ sy region cfmlTransactionTagRegion
 " s^^^   ^
 " </cf_...>
 " ^^^^^   e
-sy region cfmlCustomTagRegion
+sy region cfCustomTagRegion
   \ fold
   \ keepend
   \ transparent
@@ -529,41 +529,41 @@ sy region cfmlCustomTagRegion
 " COMMENT BLOCK {{{
 " /*...*/
 " s^   ^e
-sy region cfmlCommentBlock
+sy region cfCommentBlock
   \ keepend
   \ start="/\*"
   \ end="\*/"
   \ contains=
-    \cfmlMetaData
+    \cfMetaData
 " / COMMENT BLOCK }}}
 
 " COMMENT LINE {{{
 " //...
 " s^
-sy match cfmlCommentLine
+sy match cfCommentLine
         \ "\/\/.*"
 " / COMMENT LINE }}}
 
-sy cluster cfmlComment
+sy cluster cfComment
   \ contains=
-    \cfmlCommentBlock,
-    \cfmlCommentLine
+    \cfCommentBlock,
+    \cfCommentLine
 " / COMMENT }}}
 
 " TAG COMMENT {{{
 " <!---...--->
 " s^^^^   ^^^e
-sy region cfmlTagComment
+sy region cfTagComment
   \ keepend
     \ start="<!---"
     \ end="--->"
     \ contains=
-      \cfmlTagComment
+      \cfTagComment
 " / TAG COMMENT }}}
 
 " FLOW STATEMENT {{{
 " BRANCH FLOW KEYWORD {{{
-sy keyword cfmlBranchFlowKeyword
+sy keyword cfBranchFlowKeyword
   \ break
   \ continue
   \ return
@@ -571,7 +571,7 @@ sy keyword cfmlBranchFlowKeyword
 " / BRANCH KEYWORD }}}
 
 " DECISION FLOW KEYWORD {{{
-sy keyword cfmlDecisionFlowKeyword
+sy keyword cfDecisionFlowKeyword
   \ case
   \ defaultcase
   \ else
@@ -581,7 +581,7 @@ sy keyword cfmlDecisionFlowKeyword
 " / DECISION FLOW KEYWORD }}}
 
 " LOOP FLOW KEYWORD {{{
-sy keyword cfmlLoopFlowKeyword
+sy keyword cfLoopFlowKeyword
   \ do
   \ for
   \ in
@@ -590,7 +590,7 @@ sy keyword cfmlLoopFlowKeyword
 " / LOOP FLOW KEYWORD }}}
 
 " TRY FLOW KEYWORD {{{
-sy keyword cfmlTryFlowKeyword
+sy keyword cfTryFlowKeyword
   \ catch
   \ finally
   \ rethrow
@@ -599,22 +599,22 @@ sy keyword cfmlTryFlowKeyword
 
 " / TRY FLOW KEYWORD }}}
 
-sy cluster cfmlFlowStatement
+sy cluster cfFlowStatement
   \ contains=
-    \cfmlBranchFlowKeyword,
-    \cfmlDecisionFlowKeyword,
-    \cfmlLoopFlowKeyword,
-    \cfmlTryFlowKeyword
+    \cfBranchFlowKeyword,
+    \cfDecisionFlowKeyword,
+    \cfLoopFlowKeyword,
+    \cfTryFlowKeyword
 
 " / FLOW STATEMENT }}}
 
 " STORAGE KEYWORD {{{
-sy keyword cfmlStorageKeyword
+sy keyword cfStorageKeyword
     \ var
 " / STORAGE KEYWORD }}}
 
 " STORAGE TYPE {{{
-sy match cfmlStorageType
+sy match cfStorageType
   \ contained
   \ "\v<
     \(any
@@ -633,7 +633,7 @@ sy match cfmlStorageType
 " / STORAGE TYPE }}}
 
 " CORE KEYWORD {{{
-sy match cfmlCoreKeyword
+sy match cfCoreKeyword
   \ "\v<
     \(new
     \|required
@@ -641,7 +641,7 @@ sy match cfmlCoreKeyword
 " / CORE KEYWORD }}}
 
 " CORE SCOPE {{{
-sy match cfmlCoreScope
+sy match cfCoreScope
   \ "\v<
     \(application
     \|arguments
@@ -668,82 +668,82 @@ sy match cfmlCoreScope
 " / CORE SCOPE }}}
 
 " SQL STATEMENT {{{
-sy cluster cfmlSqlStatement
+sy cluster cfSqlStatement
   \ contains=
-    \@cfmlParenthesisRegion,
-    \@cfmlQuote,
-    \@cfmlQuotedValue,
+    \@cfParenthesisRegion,
+    \@cfQuote,
+    \@cfQuotedValue,
     \@sqlSyntax,
-    \cfmlBoolean,
-    \cfmlDot,
-    \cfmlEqualSign,
-    \cfmlFunctionName,
-    \cfmlHashSurround,
-    \cfmlNumber
+    \cfBoolean,
+    \cfDot,
+    \cfEqualSign,
+    \cfFunctionName,
+    \cfHashSurround,
+    \cfNumber
 " / SQL STATEMENT }}}
 
 " TAG IN SCRIPT {{{
-sy match cfmlTagNameInScript
+sy match cfTagNameInScript
     \ "\vcf_*\w+\s*\ze\("
 " / TAG IN SCRIPT }}}
 
 " METADATA {{{
-sy region cfmlMetaData
+sy region cfMetaData
   \ contained
   \ keepend
   \ start="@\w\+"
   \ end="$"
   \ contains=
-    \cfmlMetaDataName
+    \cfMetaDataName
 
-sy match cfmlMetaDataName
+sy match cfMetaDataName
     \ contained
     \ "@\w\+"
 " / METADATA }}}
 
 " COMPONENT DEFINITION {{{
-sy region cfmlComponentDefinition
+sy region cfComponentDefinition
   \ start="component"
   \ end="{"me=e-1
   \ contains=
-    \@cfmlAttribute,
-    \cfmlComponentKeyword
+    \@cfAttribute,
+    \cfComponentKeyword
 
-sy match cfmlComponentKeyword
+sy match cfComponentKeyword
   \ contained
   \ "\v<component>"
 " / COMPONENT DEFINITION }}}
 
 " INTERFACE DEFINITION {{{
-sy match cfmlInterfaceDefinition
+sy match cfInterfaceDefinition
   \ "interface\s.*{"me=e-1
   \ contains=
-    \cfmlInterfaceKeyword
+    \cfInterfaceKeyword
 
-sy match cfmlInterfaceKeyword
+sy match cfInterfaceKeyword
     \ contained
     \ "\v<interface>"
 " / INTERFACE DEFINITION }}}
 
 " PROPERTY {{{
-sy region cfmlProperty
+sy region cfProperty
   \ transparent
   \ start="\v<property>"
   \ end=";"me=e-1
   \ contains=
-    \@cfmlQuotedValue,
-    \cfmlAttrEqualSign,
-    \cfmlAttrName,
-    \cfmlAttrValue,
-    \cfmlPropertyKeyword
+    \@cfQuotedValue,
+    \cfAttrEqualSign,
+    \cfAttrName,
+    \cfAttrValue,
+    \cfPropertyKeyword
 
-sy match cfmlPropertyKeyword
+sy match cfPropertyKeyword
         \ contained
         \ "\v<property>"
 " / PROPERTY }}}
 
 " FUNCTION DEFINITION {{{
-sy match cfmlFunctionDefinition
+sy match cfFunctionDefinition
   \ "\v
     \(<(public|private|package)\s){,1}
     \(<
@@ -762,19 +762,19 @@ sy match cfmlFunctionDefinition
     \)\s){,1}
   \<function\s\w+\s*\("me=e-1
   \ contains=
-    \cfmlFunctionKeyword,
-    \cfmlFunctionModifier,
-    \cfmlFunctionName,
-    \cfmlFunctionReturnType
+    \cfFunctionKeyword,
+    \cfFunctionModifier,
+    \cfFunctionName,
+    \cfFunctionReturnType
 
 " FUNCTION KEYWORD {{{
-sy match cfmlFunctionKeyword
+sy match cfFunctionKeyword
   \ contained
   \ "\v<function>"
 " / FUNCTION KEYWORD }}}
 
 " FUNCTION MODIFIER {{{
-sy match cfmlFunctionModifier
+sy match cfFunctionModifier
   \ contained
     \ "\v<
     \(public
@@ -784,7 +784,7 @@ sy match cfmlFunctionModifier
 " / FUNCTION MODIFIER }}}
 
 " FUNCTION RETURN TYPE {{{
-sy match cfmlFunctionReturnType
+sy match cfFunctionReturnType
   \ contained
     \ "\v
     \(any
@@ -805,14 +805,14 @@ sy match cfmlFunctionReturnType
 " FUNCTION NAME {{{
 " specific regex for core functions decreases performance
 " so use the same highlighting for both function types
-sy match cfmlFunctionName
+sy match cfFunctionName
     \ "\v<(cf|if|elseif|throw)@!\w+\s*\ze\("
 " / FUNCTION NAME }}}
 
 " / FUNCTION DEFINITION }}}
 
 " ODD FUNCTION {{{
-sy region cfmlOddFunction
+sy region cfOddFunction
   \ transparent
   \ start="\v<
     \(abort
@@ -828,16 +828,16 @@ sy region cfmlOddFunction
     \){1}"
   \ end="\v(\{|;)"me=e-1
   \ contains=
-    \@cfmlQuotedValue,
-    \cfmlAttrEqualSign,
-    \cfmlAttrName,
-    \cfmlAttrValue,
-    \cfmlCoreKeyword,
-    \cfmlOddFunctionKeyword,
-    \cfmlCoreScope
+    \@cfQuotedValue,
+    \cfAttrEqualSign,
+    \cfAttrName,
+    \cfAttrValue,
+    \cfCoreKeyword,
+    \cfOddFunctionKeyword,
+    \cfCoreScope
 
 " ODD FUNCTION KEYWORD {{{
-sy match cfmlOddFunctionKeyword
+sy match cfOddFunctionKeyword
   \ contained
     \ "\v<
     \(abort
@@ -858,7 +858,7 @@ sy match cfmlOddFunctionKeyword
 " CUSTOM {{{
 
 " CUSTOM KEYWORD {{{
-sy match cfmlCustomKeyword
+sy match cfCustomKeyword
   \ contained
     \ "\v<
     \(customKeyword1
@@ -868,7 +868,7 @@ sy match cfmlCustomKeyword
 " / CUSTOM KEYWORD }}}
 
 " CUSTOM SCOPE {{{
-sy match cfmlCustomScope
+sy match cfCustomScope
   \ contained
     \ "\v<
     \(prc
@@ -884,48 +884,48 @@ sy match cfmlCustomScope
 " SGML tag start
 " <...>
 " s^^^e
-sy region cfmlSGMLTagStart
+sy region cfSGMLTagStart
   \ keepend
   \ transparent
   \ start="\v(\<cf)@!\zs\<\w+"
   \ end=">"
   \ contains=
-    \@cfmlAttribute,
-    \@cfmlComment,
-    \@cfmlOperator,
-    \@cfmlParenthesisRegion,
-    \@cfmlPunctuation,
-    \@cfmlQuote,
-    \@cfmlQuotedValue,
-    \cfmlAttrEqualSign,
-    \cfmlBoolean,
-    \cfmlBrace,
-    \cfmlCoreKeyword,
-    \cfmlCoreScope,
-    \cfmlCustomKeyword,
-    \cfmlCustomScope,
-    \cfmlEqualSign,
-    \cfmlFunctionName,
-    \cfmlNumber,
-    \cfmlStorageKeyword,
-    \cfmlStorageType,
-    \cfmlTagBracket,
-    \cfmlSGMLTagName
+    \@cfAttribute,
+    \@cfComment,
+    \@cfOperator,
+    \@cfParenthesisRegion,
+    \@cfPunctuation,
+    \@cfQuote,
+    \@cfQuotedValue,
+    \cfAttrEqualSign,
+    \cfBoolean,
+    \cfBrace,
+    \cfCoreKeyword,
+    \cfCoreScope,
+    \cfCustomKeyword,
+    \cfCustomScope,
+    \cfEqualSign,
+    \cfFunctionName,
+    \cfNumber,
+    \cfStorageKeyword,
+    \cfStorageType,
+    \cfTagBracket,
+    \cfSGMLTagName
 
 " SGML tag end
 " </...>
 " s^^^^e
-sy match cfmlSGMLTagEnd
+sy match cfSGMLTagEnd
   \ transparent
   \ "\v(\<\/cf)@!\zs\<\/\w+\>"
   \ contains=
-    \cfmlTagBracket,
-    \cfmlSGMLTagName
+    \cfTagBracket,
+    \cfSGMLTagName
 
 " SGML tag name
 " <...>
 " s^^^e
-sy match cfmlSGMLTagName
+sy match cfSGMLTagName
   \ contained
   \ "\v(\<\/*)\zs\w+"
 
@@ -933,82 +933,82 @@ sy match cfmlSGMLTagName
 
 " HIGHLIGHTING {{{
 
-hi link cfmlNumber Number
-hi link cfmlBoolean Boolean
-hi link cfmlEqualSign Keyword
+hi link cfNumber Number
+hi link cfBoolean Boolean
+hi link cfEqualSign Keyword
 " HASH SURROUND
-hi link cfmlHash PreProc
-hi link cfmlHashSurround PreProc
+hi link cfHash PreProc
+hi link cfHashSurround PreProc
 " OPERATOR
-hi link cfmlArithmeticOperator Function
-hi link cfmlBooleanOperator Function
-hi link cfmlDecisionOperator Function
-hi link cfmlStringOperator Function
-hi link cfmlTernaryOperator Function
+hi link cfArithmeticOperator Function
+hi link cfBooleanOperator Function
+hi link cfDecisionOperator Function
+hi link cfStringOperator Function
+hi link cfTernaryOperator Function
 " PARENTHESIS
-hi link cfmlParenthesis1 Statement
-hi link cfmlParenthesis2 String
-hi link cfmlParenthesis3 Delimiter
+hi link cfParenthesis1 Statement
+hi link cfParenthesis2 String
+hi link cfParenthesis3 Delimiter
 " BRACE
-hi link cfmlBrace PreProc
+hi link cfBrace PreProc
 " PUNCTUATION - BRACKET
-hi link cfmlBracket Statement
+hi link cfBracket Statement
 " PUNCTUATION - CHAR
-hi link cfmlComma Comment
-hi link cfmlDot Comment
-hi link cfmlSemiColon Comment
+hi link cfComma Comment
+hi link cfDot Comment
+hi link cfSemiColon Comment
 " PUNCTUATION - QUOTE
-hi link cfmlDoubleQuote String
-hi link cfmlDoubleQuotedValue String
-hi link cfmlSingleQuote String
-hi link cfmlSingleQuotedValue String
+hi link cfDoubleQuote String
+hi link cfDoubleQuotedValue String
+hi link cfSingleQuote String
+hi link cfSingleQuotedValue String
 " TAG START AND END
-hi link cfmlTagName Function
-hi link cfmlTagBracket Comment
+hi link cfTagName Function
+hi link cfTagBracket Comment
 " ATTRIBUTE NAME AND VALUE
-hi link cfmlAttrName Type
-hi link cfmlAttrValue Special
+hi link cfAttrName Type
+hi link cfAttrValue Special
 " COMMENT
-hi link cfmlCommentBlock Comment
-hi link cfmlCommentLine Comment
-hi link cfmlTagComment Comment
+hi link cfCommentBlock Comment
+hi link cfCommentLine Comment
+hi link cfTagComment Comment
 " FLOW STATEMENT
-hi link cfmlDecisionFlowKeyword Conditional
-hi link cfmlLoopFlowKeyword Repeat
-hi link cfmlTryFlowKeyword Exception
-hi link cfmlBranchFlowKeyword Keyword
+hi link cfDecisionFlowKeyword Conditional
+hi link cfLoopFlowKeyword Repeat
+hi link cfTryFlowKeyword Exception
+hi link cfBranchFlowKeyword Keyword
 " STORAGE KEYWORD
-hi link cfmlStorageKeyword Keyword
+hi link cfStorageKeyword Keyword
 " STORAGE TYPE
-hi link cfmlStorageType Keyword
+hi link cfStorageType Keyword
 " CORE KEYWORD
-hi link cfmlCoreKeyword PreProc
+hi link cfCoreKeyword PreProc
 " CORE SCOPE
-hi link cfmlCoreScope Keyword
+hi link cfCoreScope Keyword
 " TAG IN SCRIPT
-hi link cfmlTagNameInScript Function
+hi link cfTagNameInScript Function
 " METADATA
-" meta data value = cfmlMetaData
-hi link cfmlMetaData String
-hi link cfmlMetaDataName Type
+" meta data value = cfMetaData
+hi link cfMetaData String
+hi link cfMetaDataName Type
 " COMPONENT DEFINITION
-hi link cfmlComponentKeyword Keyword
+hi link cfComponentKeyword Keyword
 " INTERFACE DEFINITION
-hi link cfmlInterfaceKeyword Keyword
+hi link cfInterfaceKeyword Keyword
 " PROPERTY
-hi link cfmlPropertyKeyword Keyword
+hi link cfPropertyKeyword Keyword
 " FUNCTION DEFINITION
-hi link cfmlFunctionKeyword Keyword
-hi link cfmlFunctionModifier Keyword
-hi link cfmlFunctionReturnType Keyword
-hi link cfmlFunctionName Function
+hi link cfFunctionKeyword Keyword
+hi link cfFunctionModifier Keyword
+hi link cfFunctionReturnType Keyword
+hi link cfFunctionName Function
 " ODD FUNCTION
-hi link cfmlOddFunctionKeyword Function
+hi link cfOddFunctionKeyword Function
 " CUSTOM
-hi link cfmlCustomKeyword Keyword
-hi link cfmlCustomScope Structure
+hi link cfCustomKeyword Keyword
+hi link cfCustomScope Structure
 " SGML TAG
-hi link cfmlSGMLTagName Ignore
+hi link cfSGMLTagName Ignore
 
 " / HIGHLIGHTING }}}
 
