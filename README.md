@@ -1,3 +1,12 @@
+
+
+
+
+> This syntax highlighter is included in the official [Vim](http://www.vim.org) repository since 2017.
+> 
+> Please see https://github.com/vim/vim/blob/master/runtime/syntax/cf.vim
+
+
 VIM - CFML Syntax Highlighter
 ====================================
 Developed by Ernst M. van der Linden - [ernst.vanderlinden@ernestoz.com](mailto:ernst.vanderlinden@ernestoz.com)
@@ -32,28 +41,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-Background
-----------
-Since 1996 I'm working as a full stack web enterprise application developer.
-Eclipse has been my main programming editor for years. It's the IDE where I
-feel "at home" when programming in Java, ColdFusion, C or Scala. It integrates well
-with Ant, Maven, Gradle, Spring, Jenkins, Mylyn, task and git repos. The [Vrapper
-Eclipse Plugin](http://vrapper.sourceforge.net) keeps my brain in hjkl mode.
-
-Xcode is my environment for iOS development only. Now and then I use Emacs -nw
-with Evil mode, for example to view/edit really large syntax colored sql files.
-Intellij with [IdeaVim](https://github.com/JetBrains/ideavim) works best for me when writing code in Node.js or Python.
-
-During the day, I spend a lot of my time in the BASH shell (inside [TMUX](https://tmux.github.io) within [iTerm](https://www.iterm2.com)).
-It somehow feels "closer to the metal" to me to compile, build, commit code or
-execute Ant/Gradle tasks from the command line instead of from within my IDE.
-
-Vim is my prefered terminal editor for editing (remote) shell scripts, text and
-conf files. Though I use Vim for local editing source code files as well.
-
->Sublime and Atom (including Vim-mode) are both great text editors too.
->For whatever reason, they just don't fit in my personal workflow.
 
 Current Syntax Highlighting
 ---------------------------
@@ -604,14 +591,3 @@ Schoonover's great color scheme [Solarized
 Dark](http://ethanschoonover.com/solarized).
 
 `git clone git://github.com/altercation/vim-colors-solarized.git ~/.vim/bundle`
-
-Feedback
---------
-It has been an intensive journey to develop the first public release of this
-Vim ColdFusion Syntax Highlighter.  Sharpening my regex skills and forcing
-myself to implement everything I could possibly think of.
-
-Though [Nobody's Perfect](https://www.youtube.com/watch?v=FbniqEvs38A) and so
-am I. Therefore, if you have suggestions, remarks to improve the syntax
-highlighter, please let me know through
-[ernst.vanderlinden@ernestoz.com](mailto:ernst.vanderlinden@ernestoz.com)
