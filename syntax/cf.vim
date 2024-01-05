@@ -77,7 +77,7 @@ sy region cfHashSurround
 " += -= *= /= %=
 " ^ mod
 sy match cfArithmeticOperator
-  \ "\v
+  \ /\v
   \(\+|-)\ze\d
   \|(\+\+|--)\ze\w
   \|\w\zs(\+\+|--)
@@ -86,19 +86,19 @@ sy match cfArithmeticOperator
   \|\^
   \|mod
   \)\s)
-  \"
+  \/
 " / OPERATOR - ARITHMETIC }}}
 
 " OPERATOR - BOOLEAN {{{
 " not and or xor eqv imp
 " ! && ||
 sy match cfBooleanOperator
-  \ "\v\s
+  \ /\v\s
   \(not|and|or|xor|eqv|imp
   \|\!|\&\&|\|\|
   \)(\s|\))
   \|\s\!\ze\w
-  \"
+  \/
 " / OPERATOR - BOOLEAN }}}
 
 " OPERATOR - DECISION {{{
@@ -111,7 +111,7 @@ sy match cfBooleanOperator
 "less than or equal to|lte|le
 "==|!=|>|<|>=|<=
 sy match cfDecisionOperator
-  \ "\v\s
+  \ /\v\s
   \(is|equal|eq
   \|is not|not equal|neq
   \|contains|does not contain
@@ -122,7 +122,7 @@ sy match cfDecisionOperator
   \|(!|\<|\>|\=){1}\=
   \|\<
   \|\>
-  \)\s"
+  \)\s/
 " / OPERATOR - DECISION }}}
 
 " OPERATOR - STRING {{{
@@ -135,9 +135,9 @@ sy match cfStringOperator
 " OPERATOR - TERNARY {{{
 " ? :
 sy match cfTernaryOperator
-  \ "\v\s
+  \ /\v\s
   \\?|\:
-  \\s"
+  \\s/
 " / OPERATOR - TERNARY }}}
 
 sy cluster cfOperator
@@ -616,7 +616,7 @@ sy keyword cfStorageKeyword
 " STORAGE TYPE {{{
 sy match cfStorageType
   \ contained
-  \ "\v<
+  \ /\v<
     \(any
     \|array
     \|binary
@@ -629,20 +629,20 @@ sy match cfStorageType
     \|uuid
     \|void
     \|xml
-  \){1}\ze(\s*\=)@!"
+  \){1}\ze(\s*\=)@!/
 " / STORAGE TYPE }}}
 
 " CORE KEYWORD {{{
 sy match cfCoreKeyword
-  \ "\v<
+  \ /\v<
     \(new
     \|required
-    \)\ze\s"
+    \)\ze\s/
 " / CORE KEYWORD }}}
 
 " CORE SCOPE {{{
 sy match cfCoreScope
-  \ "\v<
+  \ /\v<
     \(application
     \|arguments
     \|attributes
@@ -664,7 +664,7 @@ sy match cfCoreScope
     \|thread
     \|variables
     \|url
-    \){1}\ze(,|\.|\[|\)|\s)"
+    \){1}\ze(,|\.|\[|\)|\s)/
 " / CORE SCOPE }}}
 
 " SQL STATEMENT {{{
@@ -744,7 +744,7 @@ sy match cfPropertyKeyword
 
 " FUNCTION DEFINITION {{{
 sy match cfFunctionDefinition
-  \ "\v
+  \ /\v
     \(<(public|private|package)\s){,1}
     \(<
       \(any
@@ -760,7 +760,7 @@ sy match cfFunctionDefinition
       \|void
       \|xml
     \)\s){,1}
-  \<function\s\w+\s*\("me=e-1
+  \<function\s\w+\s*\(/me=e-1
   \ contains=
     \cfFunctionKeyword,
     \cfFunctionModifier,
@@ -776,17 +776,17 @@ sy match cfFunctionKeyword
 " FUNCTION MODIFIER {{{
 sy match cfFunctionModifier
   \ contained
-    \ "\v<
+    \ /\v<
     \(public
     \|private
     \|package
-    \)>"
+    \)>/
 " / FUNCTION MODIFIER }}}
 
 " FUNCTION RETURN TYPE {{{
 sy match cfFunctionReturnType
   \ contained
-    \ "\v
+    \ /\v
     \(any
     \|array
     \|binary
@@ -799,7 +799,7 @@ sy match cfFunctionReturnType
     \|uuid
     \|void
     \|xml
-    \)"
+    \)/
 " / FUNCTION RETURN TYPE }}}
 
 " FUNCTION NAME {{{
@@ -839,7 +839,7 @@ sy region cfOddFunction
 " ODD FUNCTION KEYWORD {{{
 sy match cfOddFunctionKeyword
   \ contained
-    \ "\v<
+    \ /\v<
     \(abort
     \|exit
     \|import
@@ -850,7 +850,7 @@ sy match cfOddFunctionKeyword
     \|savecontent
     \|thread
     \|transaction
-    \)\ze(\s|$|;)"
+    \)\ze(\s|$|;)/
 " / ODD FUNCTION KEYWORD }}}
 
 " / ODD FUNCTION }}}
@@ -860,22 +860,22 @@ sy match cfOddFunctionKeyword
 " CUSTOM KEYWORD {{{
 sy match cfCustomKeyword
   \ contained
-    \ "\v<
+    \ /\v<
     \(customKeyword1
     \|customKeyword2
     \|customKeyword3
-    \)>"
+    \)>/
 " / CUSTOM KEYWORD }}}
 
 " CUSTOM SCOPE {{{
 sy match cfCustomScope
   \ contained
-    \ "\v<
+    \ /\v<
     \(prc
     \|rc
     \|event
     \|(\w+Service)
-    \){1}\ze(\.|\[)"
+    \){1}\ze(\.|\[)/
 " / CUSTOM SCOPE }}}
 
 " / CUSTOM }}}
